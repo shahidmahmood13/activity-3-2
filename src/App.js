@@ -29,10 +29,10 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 
   return (
     <>
-      <NewPost />
+      <NewPost post={post} setPost={setPost} />
       {post.map((ite)=>{
         return(
-          <BlogPosts title ={ite.title} blog= {ite.body} />
+          <BlogPosts key={ite.id} title ={ite.title} blog= {ite.body} />
         )
       })}
      
