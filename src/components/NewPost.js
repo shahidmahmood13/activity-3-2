@@ -3,6 +3,8 @@ import classes from './NewPost.module.css';
 
 function NewPost() {
   const [enteredTitle, setEnteredTitle] = useState('');
+  
+
 
   function updateTitleHandler(event) {
     setEnteredTitle(event.target.value);
@@ -19,7 +21,7 @@ function NewPost() {
         <label>Title</label>
         <input type="text" onChange={updateTitleHandler} value={enteredTitle} />
       </div>
-      <button>Save</button>
+      <button >Save</button>
     </form>
   );
 }
