@@ -3,10 +3,14 @@ import classes from './NewPost.module.css';
 
 function NewPost({post, setPost}) {
   const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredbody, setEnteredbody]= useState('')
 
 
   function updateTitleHandler(event) {
     setEnteredTitle(event.target.value);
+  }
+  function updatebody(event){
+    setEnteredbody(event.target.value)
   }
 
   function submitHandler(event) {
@@ -19,7 +23,7 @@ function NewPost({post, setPost}) {
       method: 'POST',
       body: JSON.stringify({
         title: enteredTitle,
-        body: 'bar',
+        body: enteredbody,
         userId: 1,
       }),
       headers: {
@@ -33,6 +37,10 @@ function NewPost({post, setPost}) {
 
     })
 
+    setEnteredbody("")
+    setEnteredTitle("")
+
+
   }
 
 
@@ -41,6 +49,7 @@ function NewPost({post, setPost}) {
       <div>
         <label>Title</label>
         <input type="text" onChange={updateTitleHandler} value={enteredTitle} />
+        <input type="text" onChange={updatebody} value={enteredbody} />
       </div>
       <button >Save</button>
     </form>
